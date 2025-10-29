@@ -34,7 +34,8 @@ const ReportCard = ({ report }) => {
     suggested_tests = [],
     specialty = 'General Physician',
     report: detailedReport = '',
-    timestamp = new Date().toISOString()
+    timestamp = new Date().toISOString(),
+    heavyModelUsed = false
   } = report || {};
 
   const navigate = useNavigate();
@@ -78,9 +79,16 @@ const ReportCard = ({ report }) => {
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-xl font-semibold">Diagnostic Report</CardTitle>
-          <Badge variant="outline" className={getConfidenceBadge(confidence)}>
-            {confidence}% Confidence
-          </Badge>
+          <div className="flex items-center gap-2">
+            {heavyModelUsed && (
+              <Badge variant="destructive" className="bg-purple-600 hover:bg-purple-700">
+                🔥 Heavy Model
+              </Badge>
+            )}
+            <Badge variant="outline" className={getConfidenceBadge(confidence)}>
+              {confidence}% Confidence
+            </Badge>
+          </div>
         </div>
         <CardDescription>
           Analysis generated on {new Date(timestamp).toLocaleDateString()} at{' '}

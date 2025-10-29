@@ -54,14 +54,14 @@ def load_mri_model(mode='3d', device='cpu'):
         if not WEIGHT_MRI_2D.is_file():
             raise FileNotFoundError(f"MRI 2D weights not found at {WEIGHT_MRI_2D}")
         model = MRINet2D()
-        ckpt = torch.load(str(WEIGHT_MRI_2D), map_location=device)
+        ckpt = torch.load(str(WEIGHT_MRI_2D), map_location=device, weights_only=False)
         sd = ckpt.get('state_dict', ckpt)
 
     elif mode == '3d':
         if not WEIGHT_MRI_3D.is_file():
             raise FileNotFoundError(f"MRI 3D weights not found at {WEIGHT_MRI_3D}")
         model = MRINet3D()
-        ckpt = torch.load(str(WEIGHT_MRI_3D), map_location=device)
+        ckpt = torch.load(str(WEIGHT_MRI_3D), map_location=device, weights_only=False)
         sd = ckpt.get('state_dict', ckpt)
 
     else:

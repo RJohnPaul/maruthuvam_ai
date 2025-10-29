@@ -6,7 +6,7 @@ const PrintableReport = React.forwardRef(({ reportData }, ref) => {
   return (
     <div ref={ref} className="p-6 font-sans text-black w-[210mm] bg-white">
       <div className="mb-6 border-b pb-4">
-        <h1 className="text-2xl font-bold text-blue-700">MediVision AI</h1>
+        <h1 className="text-2xl font-bold text-blue-700">MaruthuvamAI</h1>
         <p className="text-sm text-gray-600">Diagnostic Report</p>
         <p className="text-sm text-gray-500">Generated on {new Date().toLocaleString()}</p>
       </div>
@@ -43,7 +43,7 @@ const PrintableReport = React.forwardRef(({ reportData }, ref) => {
       </section>
 
       <footer className="mt-10 text-center text-xs text-gray-400 border-t pt-4">
-        Powered by MediVision AI • www.medivision.ai
+        Powered by MaruthuvamAI • www.MaruthuvamAI.ai
       </footer>
     </div>
   );

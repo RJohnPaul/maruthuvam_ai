@@ -13,6 +13,9 @@ dist-ssr
 *.local
 .env
 
+# Local npm cache (set by .npmrc to avoid global permission issues)
+.npm-cache
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

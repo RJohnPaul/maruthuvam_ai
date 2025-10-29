@@ -20,7 +20,7 @@ export default function PrivacySection() {
             <HeartHandshake className="object-contain"/>
           </div>
           <p className="max-w-md text-center md:text-right leading-relaxed">
-            MediVision AI never requires personally identifiable information to assist you.
+            MaruthuvamAI never requires personally identifiable information to assist you.
             Your health data remains secure, protected by industry-leading encryption,
             and fully compliant with HIPAA and GDPR standards.
           </p>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './components/ui/button';
-import { Card, CardContent } from './components/ui/card';
+import { MainMenusGradientCard } from "@/cuicui/other/cursors/dynamic-cards/gradient-card";
 import {
   FileText,
   Clock,
@@ -26,11 +26,24 @@ import { AuroraText } from "./components/magicui/aurora-text";
 import { MagicCard } from "./components/magicui/magic-card";
 
 const LandingPage = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 50);
+    return () => clearTimeout(t);
+  }, []);
+
+  const cardBase =
+    "relative overflow-hidden rounded-2xl border backdrop-blur-md bg-white/10 dark:bg-white/5 border-white/20 dark:border-white/10 shadow-lg hover:shadow-xl transition-all";
+  const cardAnim = (i) =>
+    `${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} transition-all duration-700 ease-out` +
+    ` `;
+  const delayStyle = (i) => ({ transitionDelay: `${i * 120}ms` });
+
   return (
     <div className="flex flex-col w-full">
       {/* <SmoothCursor /> */}
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white via-white to-blue-900 dark:bg-gradient-to-br dark:from-black dark:via-black dark:to-blue-900 text-black dark:text-white py-16 md:py-24">
+      <section className="relative text-black dark:text-white py-16 md:py-24 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -41,7 +54,7 @@ const LandingPage = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight">
                 Diagnose Smarter, <br />
                 <SparklesText>
-                  <AuroraText>Faster, Better</AuroraText>
+                  <text className='text-[#4520d7] drop-shadow-[0_0_6px_#2400b8] font-semibold'>Faster, Better</text>
                 </SparklesText>
               </h1>
 
@@ -81,96 +94,100 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+        {/* Progressive blur + gradient to smooth into next section */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10">
+          <div className="h-full w-full bg-gradient-to-b from-transparent via-white/70 to-white dark:via-zinc-900/60 dark:to-zinc-950 backdrop-blur-md" />
+        </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-16 bg-white dark:bg-zinc-950">
+      <section id="features" className="relative -mt-10 pt-16 pb-16 bg-white dark:bg-zinc-950">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight mb-2">Advanced Features</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              MediVision AI combines cutting-edge technology with medical expertise to deliver unparalleled diagnostic assistance.
+              MaruthuvamAI combines cutting-edge technology with medical expertise to deliver unparalleled diagnostic assistance.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* Feature 1 */}
-            <Card className="border-2 shadow-md hover:shadow-lg transition-shadow duration-300 dark:border-slate-900">
-              <CardContent className="pt-6">
-                <div className="rounded-lg bg-blue-50 p-3 w-12 h-12 flex items-center justify-center mb-4">
+            <div className={`${cardAnim(0)}`} style={delayStyle(0)}>
+              <MainMenusGradientCard
+                title="5 Specialized AI Models"
+                description="Purpose-built AI models optimized for specific medical imaging modalities, from brain MRIs to retinal scans."
+                withArrow
+              >
+                <div className="rounded-lg bg-white/20 dark:bg-white/10 p-3 w-12 h-12 flex items-center justify-center">
                   <Brain className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="text-lg font-medium mb-2">5 Specialized AI Models</h3>
-                <p className="text-slate-600 text-sm">
-                  Purpose-built AI models optimized for specific medical imaging modalities, from brain MRIs to retinal scans.
-                </p>
-              </CardContent>
-            </Card>
+              </MainMenusGradientCard>
+            </div>
 
             {/* Feature 2 */}
-            <Card className="border-2 shadow-md hover:shadow-lg transition-shadow duration-300 dark:border-slate-900">
-              <CardContent className="pt-6">
-                <div className="rounded-lg bg-green-50 p-3 w-12 h-12 flex items-center justify-center mb-4">
+            <div className={`${cardAnim(1)}`} style={delayStyle(1)}>
+              <MainMenusGradientCard
+                title="LLM-Based Reporting"
+                description="Natural language reports generated instantly from image analysis, saving hours of documentation time."
+                withArrow
+              >
+                <div className="rounded-lg bg-white/20 dark:bg-white/10 p-3 w-12 h-12 flex items-center justify-center">
                   <CloudLightning className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="text-lg font-medium mb-2">LLM-Based Reporting</h3>
-                <p className="text-slate-600 text-sm">
-                  Natural language reports generated instantly from image analysis, saving hours of documentation time.
-                </p>
-              </CardContent>
-            </Card>
+              </MainMenusGradientCard>
+            </div>
 
             {/* Feature 3 */}
-            <Card className="border-2 shadow-md hover:shadow-lg transition-shadow duration-300 dark:border-slate-900">
-              <CardContent className="pt-6">
-                <div className="rounded-lg bg-amber-50 p-3 w-12 h-12 flex items-center justify-center mb-4">
+            <div className={`${cardAnim(2)}`} style={delayStyle(2)}>
+              <MainMenusGradientCard
+                title="Instant PDF Reports"
+                description="One-click generation of comprehensive, shareable reports with segmentation visualization."
+                withArrow
+              >
+                <div className="rounded-lg bg-white/20 dark:bg-white/10 p-3 w-12 h-12 flex items-center justify-center">
                   <FileText className="h-6 w-6 text-amber-600" />
                 </div>
-                <h3 className="text-lg font-medium mb-2">Instant PDF Reports</h3>
-                <p className="text-slate-600 text-sm">
-                  One-click generation of comprehensive, shareable reports with segmentation visualization.
-                </p>
-              </CardContent>
-            </Card>
+              </MainMenusGradientCard>
+            </div>
 
             {/* Feature 4 */}
-            <Card className="border-2 shadow-md hover:shadow-lg transition-shadow duration-300 dark:border-slate-900">
-              <CardContent className="pt-6">
-                <div className="rounded-lg bg-purple-50 p-3 w-12 h-12 flex items-center justify-center mb-4">
+            <div className={`${cardAnim(3)}`} style={delayStyle(3)}>
+              <MainMenusGradientCard
+                title="Rapid Processing"
+                description="Analysis completed in seconds, not hours, enabling faster clinical decision-making."
+                withArrow
+              >
+                <div className="rounded-lg bg-white/20 dark:bg-white/10 p-3 w-12 h-12 flex items-center justify-center">
                   <Clock className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="text-lg font-medium mb-2">Rapid Processing</h3>
-                <p className="text-slate-600 text-sm">
-                  Analysis completed in seconds, not hours, enabling faster clinical decision-making.
-                </p>
-              </CardContent>
-            </Card>
+              </MainMenusGradientCard>
+            </div>
 
             {/* Feature 5 */}
-            <Card className="border-2 shadow-md hover:shadow-lg transition-shadow duration-300 dark:border-slate-900">
-              <CardContent className="pt-6">
-                <div className="rounded-lg bg-red-50 p-3 w-12 h-12 flex items-center justify-center mb-4">
+            <div className={`${cardAnim(4)}`} style={delayStyle(4)}>
+              <MainMenusGradientCard
+                title="HIPAA Compliant"
+                description="Enterprise-grade security with full encryption and compliance with medical data regulations."
+                withArrow
+              >
+                <div className="rounded-lg bg-white/20 dark:bg-white/10 p-3 w-12 h-12 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-red-600" />
                 </div>
-                <h3 className="text-lg font-medium mb-2">HIPAA Compliant</h3>
-                <p className="text-slate-600 text-sm">
-                  Enterprise-grade security with full encryption and compliance with medical data regulations.
-                </p>
-              </CardContent>
-            </Card>
+              </MainMenusGradientCard>
+            </div>
 
             {/* Feature 6 */}
-            <Card className="border-2 shadow-md hover:shadow-lg transition-shadow duration-300 dark:border-slate-900">
-              <CardContent className="pt-6">
-                <div className="rounded-lg bg-indigo-50 p-3 w-12 h-12 flex items-center justify-center mb-4">
+            <div className={`${cardAnim(5)}`} style={delayStyle(5)}>
+              <MainMenusGradientCard
+                title="Historical Analysis"
+                description="Compare current results with patient history to identify changes and trends over time."
+                withArrow
+              >
+                <div className="rounded-lg bg-white/20 dark:bg-white/10 p-3 w-12 h-12 flex items-center justify-center">
                   <Database className="h-6 w-6 text-indigo-600" />
                 </div>
-                <h3 className="text-lg font-medium mb-2">Historical Analysis</h3>
-                <p className="text-slate-600 text-sm">
-                  Compare current results with patient history to identify changes and trends over time.
-                </p>
-              </CardContent>
-            </Card>
+              </MainMenusGradientCard>
+            </div>
           </div>
         </div>
       </section>
@@ -191,7 +208,7 @@ const LandingPage = () => {
                 Ready to Transform Your Diagnostic Workflow?
               </h2>
               <p className="text-slate-600 mb-8 max-w-xl mx-auto">
-                Join thousands of medical professionals already using MediVision AI to improve accuracy and save time.
+                Join thousands of medical professionals already using MaruthuvamAI to improve accuracy and save time.
               </p>
               <Button
                 asChild
@@ -254,7 +271,7 @@ const LandingPage = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight mb-2">What Our Users Say</h2>
               <p className="text-slate-600 max-w-2xl mx-auto">
-                Hear from our satisfied users about how MediVision AI has transformed their diagnostic processes.
+                Hear from our satisfied users about how MaruthuvamAI has transformed their diagnostic processes.
               </p>
             </div>
           </div>

@@ -20,7 +20,7 @@ class USFMUltrasoundClassifier(nn.Module):
         self.backbone = create_model(
             'vit_base_patch16_224', pretrained=False, num_classes=0, global_pool=''
         )
-        ckpt = torch.load(str(checkpoint_path), map_location='cpu')
+        ckpt = torch.load(str(checkpoint_path), map_location='cpu', weights_only=False)
         self.backbone.load_state_dict(ckpt, strict=False)
         embed_dim = self.backbone.embed_dim
         self.head = nn.Sequential(

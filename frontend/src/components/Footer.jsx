@@ -76,8 +76,8 @@ export default function Footerdemo() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
             <address className="space-y-2 text-sm not-italic">
-              <p>NMIT Hacks</p>
-              <p>Tech City, Bangalore</p>
+              <p>Void-V1 Hackathon</p>
+              <p>VIT Chennai</p>
               <p>Phone: (123) 456-7890</p>
               <p>Email: hello@example.com</p>
             </address>
@@ -154,7 +154,7 @@ export default function Footerdemo() {
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © 2025 MediVision AI. All rights reserved.
+            © 2025 MaruthuvamAI. All rights reserved.
           </p>
           <nav className="flex gap-4 text-sm">
             <a href="#" className="transition-colors hover:text-primary">

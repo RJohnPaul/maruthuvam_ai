@@ -2,8 +2,10 @@ geopy
 google-api-python-client
 google-auth
 google-generativeai
+google-genai
 grpcio
 huggingface-hub
+torchxrayvision
 httpx
 Jinja2
 keras
@@ -21,6 +23,9 @@ tensorflow
 timm
 torch
 torchvision
+transformers
+accelerate
+sentencepiece
 tqdm
 uvicorn
 python-dotenv

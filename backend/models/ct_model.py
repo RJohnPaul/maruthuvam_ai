@@ -69,7 +69,7 @@ def load_ct_model(mode="2d", device="cpu"):
     if not os.path.exists(weights_path):
         raise FileNotFoundError(f"CT weights not found at {weights_path}")
 
-    checkpoint = torch.load(weights_path, map_location=device)
+    checkpoint = torch.load(weights_path, map_location=device, weights_only=False)
     raw_sd = checkpoint.get('state_dict', checkpoint)
 
     clean_sd = {}

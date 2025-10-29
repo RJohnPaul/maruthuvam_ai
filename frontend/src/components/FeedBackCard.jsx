@@ -9,6 +9,7 @@ import {
   Smile
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { cn } from '../lib/utils';
