@@ -12,7 +12,7 @@ const Header = () => {
           <div className="flex h-14 md:h-16 items-center justify-between px-4 md:px-6">
             <Link to="/" className="flex items-center gap-2 text-lg font-semibold transition-colors hover:text-blue-600">
               <Activity className="h-6 w-6 text-blue-600" />
-              <span>MaruthuvamAI</span>
+              <span>Medivision AI</span>
             </Link>
 
             {/* <nav className="hidden md:flex items-center gap-6">

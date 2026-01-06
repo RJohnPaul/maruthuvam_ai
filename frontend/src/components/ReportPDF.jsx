@@ -106,7 +106,7 @@ const ReportPDF = ({ reportData }) => {
     <Document>
       <Page size="A4" style={styles.page}>
         {/* Watermark */}
-        <Text style={styles.watermark}>MaruthuvamAI</Text>
+        <Text style={styles.watermark}>Medivision AI</Text>
 
         {/* Header */}
         <View style={styles.header}>
