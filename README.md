@@ -1,4 +1,4 @@
-# MaruthuvamAI — Medical Imaging Assistant
+# Medivision AI — Medical Imaging Assistant
 A full‑stack assistant for medical image triage and report generation. Upload an image (X‑ray, CT, MRI, Ultrasound), get predictions with safety checks, and generate detailed reports using Gemini with clinician‑friendly guidance and follow‑ups.
 
 ## Highlights
@@ -132,4 +132,5 @@ MIT © 2025
 ## Credits
 - Core team: Sumit Singh, Somil Gupta, Abhishek
 
-# maruthuvam_ai
+# medivision_ai
+# medivision_ai
